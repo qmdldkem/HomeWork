@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>체크박스 내용 전달방식</title>
+  <style>
+    fieldset{
+      width: 300px;
+      margin:0 auto;
+    }
+  </style>
+</head>
+<body>
+    <fieldset>
+      <legend>체크박스</legend>
+        <input type="checkbox" value="JAVA" >JAVA
+        <input type="checkbox" value="ANDROID">ANDROID
+        <input type="checkbox" value="CSS">CSS
+        <br>
+        <input type="checkbox" value="HTML">HTML
+        <input type="checkbox" value="IOT">IOT
+        <input type="checkbox" value="JAVASCRIPT">JAVASCRIPT
+    </fieldset> 
+    <fieldset>
+      <legend>셀렉트</legend>
+       <select>
+        <option value="JAVA">JAVA</option>
+        <option value="ANDROID">ANDROID</option>
+        <option value="CSS">CSS</option>
+        <option value="HTML">HTML</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <legend>버튼</legend>
+      <input type="button" id="btn" value="전송">
+    </fieldset>
+    <fieldset>
+      <legend>출력영역</legend>
+      <br>
+        <div id="checkname">체크 내용 :</div>
+      <br>
+        <div id="selectname">셀렉트 내용 : </div>
+        <br>
+    </fieldset>
+
+
+  <script>
+   var button = document.getElementById("btn");
+   button.addEventListener("click", function(){
+    var checks=document.getElementsByTagName("fieldset");
+    var inner = checks[0].getElementsByTagName("input");
+    var str="체크 내용 :  ";
+    for(var i=0; i<inner.length; i++){
+      if(inner[i].checked){
+        str+=inner[i].value+" ";
+      }
+    }
+    document.getElementById("checkname").innerHTML=str;
+   });
+    
+  </script>
+</body>
+</html>
