@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>이벤트처리</title>
+  </head>
+  <body>
+    <div id="wrap">
+      <input type="text" id="user" placeholder="아이디를 입력"><br>
+      <input type="text" id="address" placeholder="주소를 입력"><br>
+      <input type="button" id="btn" value="클릭!" onclick="getText()"><br>
+      <a href="#">링크1</a><br>
+      <a href="#">링크2</a><br>
+      <a href="#">링크3</a><br>
+      <a href="#user">링크4</a>
+      <div id="indiv">
+        <ul>
+          <li>리스트1</li>
+          <li id="li2">리스트2</li>
+          <li>리스트3</li>
+          <li>리스트4</li>
+          <li>리스트5</li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      var add = document.getElementById("address");
+      console.log(add);
+      add.focus();
+      // Element.focus() : 해당 요소로 커서를 이동하고 강조시킴
+      // activeElement : 현재 포커스되어있는 요소를 가져온다
+      console.log(document.activeElement);
+      
+      function getText(){
+        if(add.value == ""){
+          alert("주소가 입력되지 않았습니다.");
+          add.focus();
+        }
+      }
+      // addEventListener("상황",동작);
+      document.addEventListener("click", test);
+       function test(a){
+        console.log(a.target);
+        // a.target.style.backgroundColor ="red";
+      }
+
+      // *x매우중요
+      // a.target : 현재 동작을 실행시킨 요소를 특정해냄
+
+      // *x매우중요
+      var links= document.getElementsByTagName("a");
+      // innerHTML : HTMl자체가 hypertextCode 이기때문에 대문자로 쓰고 / HTML은 태그를 포함하여 사용할때 쓴다.(태그를 입력하면 태그의 기능이 온전히 발현)
+      // innerText : Text는 HyperText가 아니기에 카멜코드로 사용된다. / Text는 태그를 포함하여 사용하면 태그도 같이 나온다.
+      var result = links[2];
+      result.innerHTML = "<span style='color:red'>이걸로 변경</span>";
+
+      var li2 = document.getElementById("li2");
+      var parent = li2.parentNode;
+      console.log(parent);
+      var child = parent.lastChild;
+      console.log(child.nodeValue);
+      // firstChild : 자식요소 중 첫째를 추출, 대부분의경우 #text임
+      // lastChild : 자식요소중 막내를 추출, 대부분의경우 #text임
+      console.log(li2.previousSibling);
+      // previousSibling : 형제요소 중 바로 앞에 나오는 형제를 추출, 대부분의경우 #text임
+      // nextSibling : 형제요소 중 바로 다음에 나오는 형제를 추출, 대부분의경우 #text임
+      console.log(li2.nextElementSibling);
+      // previousElementSibling : 형제요소 중 바로 앞에 Element인 형제를 추출
+      // nextElementSibling : 형제요소 중 바로 뒤에 Element인 형제를 추출
+      
+
+  </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<hmtl>
+  <head>
+    <meta charset="utf-8">
+    <title>속성노드</title>
+  </head>
+  <body>
+    <div>
+      <!--ElementNode에는 input이 있고, input과 동등한 위치에 - type="button" - id="test" 식으로 잡힌다. -->
+      <input type="button" id="btn" class="test" onclick="sample" value="클릭!">
+    </div>
+    
+    <script>
+     var btn = document.getElementById("btn");
+     console.log(btn);
+
+     // AttributeNode: 해당 태그의 속성정보를 저장하고 있는 노드
+     // Element.attributes
+     console.log(btn.attributes);
+     // 속성 명칭을 통해서 데이터를 추출하는 방법
+     // attributes.getNamedItem(String) : 해당 명칭을 가지고 있는 Node를 추출
+     console.log(btn.attributes.getNamedItem("onclick").value);
+     console.log(btn.attributes.getNamedItem("type").value);
+     btn.attributes.getNamedItem("type").value="text";
+    
+
+     function A(){
+      alert("내용 주입 확인");
+     }
+
+     btn.attributes.getNamedItem("onclick").value="A()";
+
+     // attributes.item(int) : 해당 순번의 속성을 가져온다.
+     // attributes[int] : 배열속성을 이용하여 해당 순번의 속성을 가져온다.
+    console.log(btn.attributes.item(0));
+    console.log(btn.attributes[1]);
+
+    // 속성의 수를 확인하고 싶은 경우 length를 사용하면 된다.
+    console.log(btn.attributes.length);
+
+    // 속성의 이름을 확인하는 방법
+    // attributes[int].name : 해당 속성의 이름을 가져온다.
+    console.log(btn.attributes[2].name);
+
+    // attributes.removeNamedItem(String) : 해당 속성을 제거
+    btn.attributes.removeNamedItem("value");
+
+    // 속성노드의 검사,취득,설정,제거 *x5,000,000
+    // hasAttribute(String) : 해당 속성노드가 있으면 참, 없으면 거짓
+    console.log(btn.hasAttribute("value"));
+    // getAttribute(String) : 해당 속성노드의 값을 가져옴
+    console.log(btn.getAttribute("id"));
+    // setAttribute(String) : 해당 속성노드의 값을 넣어줌
+    btn.setAttribute("id","make");
+    btn.setAttribute("value","다시 값 입력");
+    btn.setAttribute("type","button");
+    // removeAttribute(String) : 해당 속성노드를 제거
+    btn.removeAttribute("class");
+
+    </script>
+  </body>
+</hmtl>

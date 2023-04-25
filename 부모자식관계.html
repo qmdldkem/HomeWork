@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>부모-자식관계</title>
+  </head>
+  <body>
+    <div>
+      <h1>자식노드</h1>
+    </div>
+    <div>
+      <ul>
+        <li>리스트1</li>
+        <li>리스트2</li>
+        <li>리스트3</li>
+        <li>리<span>스</span>트4</li>
+      </ul>
+    </div>
+
+    <script>
+      var d = document.getElementsByTagName("div")[0];
+      console.log(d);
+      // childNodes :  해당 Element의 자식인 Node'들'을 추출
+      console.log(d.childNodes[1]); // 자식노드가 3개가 나오는것을 확인
+      // div의 Element.인 자식은 하나지만 TextNode인 자식이 사이사이에 있어서 총3개의 자식을 가진다
+      for(var i=0; i<d.childNodes.length; i++){
+        console.log(d.childNodes[i].nodeName);
+      }
+      
+      var u = document.getElementsByTagName("ul")[0];
+      console.log(u.childNodes); // 총 9개의 자식노드를 보유하고 있음을 확인
+
+      var data = u.childNodes[7].childNodes; /*li중에서 가장 마지막 요소*/
+      console.log(data);
+
+      for(var i=0; i<data.length; i++){
+        console.log(data[i].nodeType);
+        console.log(data[i].nodeName);
+        console.log(data[i].nodeValue);
+      }
+
+      console.log(data[1].childNodes[0].nodeValue);
+    </script>
+  </body>
+</html>
