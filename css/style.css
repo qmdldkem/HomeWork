@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+*{
+  margin:0;
+  padding:0;
+}
+
+h1{
+  text-align: center;
+  margin:0px auto;
+  background-color: black;
+  font-size: 56px;
+  color:white;
+}
+
+.wrap{
+width: 1200px;
+height: 50px;
+margin: 0 auto;
+}
+
+.menu1{
+  margin:0 auto;
+  font-size: 22px;
+  font-weight: bold;
+  display: inline;
+  padding : 10px;
+  word-spacing: 15px;
+}
+
+.menu2{
+  margin: 0 auto;
+  font-size: 16px;
+  display: inline;
+  float:right;
+}
+
+ul{
+ list-style: none;
+ text-align: center;
+}
+
+li{
+  display: inline;
+}
+
+
+img{
+  width: 300px;
+  height: 450px;
+}
+
+img:hover{
+  filter: brightness(0.5);
+
+}
+/*
+.Imgmenu1{
+  text-align: center;
+}
+
+.Imgmenu2{
+  text-align: center;
+}
+
+.Imgmenu3{
+  text-align: center;
+}
+*/
+input{
+  background-color: black;
+  color:white;
+}
+
+.lastline{
+  font-size: 45px;
+  margin:0 auto;
+  text-align: end;
+  clear:both;
+}
+
+.ImgMain{
+  clear: both;
+  text-align: center;
+  background-color: black;
+  
+}
+
+
+.sizecode{
+  width:300px;
+  height: 450px;
+  /*margin:35px auto;*/
+  display:inline-block;
+  padding : 35px;
+  position: relative;
+}
+
+.Nothingbetter{
+  /*position: absolute;*/
+  display: block;
+  color:white;
+}
+
+.blind:hover{
+  /*display: block;*/
+  position: absolute;
+  display: none;
+  color:white;
+}
